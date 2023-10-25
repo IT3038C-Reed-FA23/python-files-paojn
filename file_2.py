@@ -3,14 +3,15 @@ import os
 def count_lines_words_in_file(file_path):
     try:
         # Check if the file exists
-
+        if os.path.exists(file_path):
             # Open the file in read mode
-                content = ""
-                lines = ""
-                words = ""
+            with open(file_path, 'r') as file:
+                content = file.read()
+                lines = content.split('\n')
+                words = content.split()
                 print(f"Number of lines: {len(lines)}")
                 print(f"Number of words: {len(words)}")
-        # else:
+        else:
             print(f"The file '{file_path}' does not exist.")
 
     except Exception as e:
