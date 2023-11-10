@@ -29,7 +29,7 @@ def test_run_shell_command_error(capsys, capture_output):
     stdout, stderr = capsys.readouterr()
     assert "Command Output:" in stdout
     assert "Errors:" in stdout
-    assert "nonexistent_command: command not found" in stdout
+    assert "nonexistent_command: command not found" in stdout or "not recognized as an internal or external command" in stdout or "nonexistent_command: not found" in stdout
 
 if __name__ == '__main__':
     pytest.main()
